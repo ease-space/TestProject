@@ -1,0 +1,58 @@
+import {Comment} from './responses';
+
+export const comments_mock: Comment[] = [
+  {
+    id: '1111',
+    timestamp: new Date().getTime(),
+    avatar: null,
+    user_name: 'Іван Іванович',
+    email: 'ivan_ivanovich@gmail.com',
+    text: 'Текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст',
+    parentId: null,
+  },
+  {
+    id: '2222',
+    timestamp: new Date().getTime(),
+    avatar: null,
+    user_name: 'Юрій Юрієвич',
+    email: 'yurii_yuriyevich@gmail.com',
+    text: 'Текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст',
+    parentId: '1111',
+  },
+  {
+    id: '3333',
+    timestamp: new Date().getTime(),
+    avatar: null,
+    user_name: 'Петро Петрович',
+    email: 'petro_petrivich@gmail.com',
+    text: 'Текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст',
+    parentId: '2222',
+  },
+  {
+    id: '4444',
+    timestamp: new Date().getTime(),
+    avatar: null,
+    user_name: 'Юрій Юрієвич',
+    email: 'yurii_yuriyevich@gmail.com',
+    text: 'Текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст',
+    parentId: '3333',
+  },
+  {
+    id: '5555',
+    timestamp: new Date().getTime(),
+    avatar: null,
+    user_name: 'Петро Петрович',
+    email: 'petro_petrivich@gmail.com',
+    text: 'Текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст',
+    parentId: '2222',
+  },
+  {
+    id: '6666',
+    timestamp: new Date().getTime(),
+    avatar: null,
+    user_name: 'Юрій Юрієвич',
+    email: 'yurii_yuriyevich@gmail.com',
+    text: 'Текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст',
+    parentId: null,
+  },
+];
