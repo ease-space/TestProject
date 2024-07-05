@@ -6,19 +6,26 @@ import {formatTimestamp} from '../../core/helpers/dateTime';
 
 import {Comment} from '../../core/api/comments/responses';
 
-interface ListItemData extends Comment {
+interface CommentListItemData extends Comment {
   indent?: number;
 }
 
-interface ListItemProps {
-  item: ListItemData;
+interface CommentListItemProps {
+  item: CommentListItemData;
   onPressAddComment(parentId: string): void;
 }
 
-const ListItem: FunctionComponent<ListItemProps> = props => {
+const CommentListItem: FunctionComponent<CommentListItemProps> = props => {
   const {item, onPressAddComment} = props;
 
-  const {id, timestamp, avatar, user_name, text, indent = ITEM_INDENT} = item;
+  const {
+    id,
+    timestamp,
+    avatar,
+    user_name,
+    text,
+    indent = COMMENT_ITEM_INDENT,
+  } = item;
 
   return (
     <View style={[styles.contentContainer, {paddingLeft: indent}]}>
@@ -52,12 +59,12 @@ const ListItem: FunctionComponent<ListItemProps> = props => {
   );
 };
 
-export const ITEM_INDENT = 16;
+export const COMMENT_ITEM_INDENT = 16;
 
 const styles = StyleSheet.create({
   contentContainer: {
     paddingTop: 16,
-    paddingRight: ITEM_INDENT,
+    paddingRight: COMMENT_ITEM_INDENT,
   },
   header: {
     height: 70,
@@ -90,4 +97,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default ListItem;
+export default CommentListItem;
