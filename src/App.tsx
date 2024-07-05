@@ -3,6 +3,7 @@ import {SafeAreaProvider, SafeAreaView} from 'react-native-safe-area-context';
 import {StyleSheet} from 'react-native';
 
 import CommentsList from './components/commets/CommentsList';
+import AddComment from './components/commets/AddComment';
 
 import {getComments} from './core/api/comments/requests';
 
@@ -33,6 +34,8 @@ const App = () => {
           loading={loading}
           onPressAddComment={onPressAddComment}
         />
+
+        <AddComment />
       </SafeAreaView>
     </SafeAreaProvider>
   );
