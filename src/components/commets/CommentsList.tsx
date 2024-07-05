@@ -3,7 +3,7 @@ import {FlatList, StyleSheet, ListRenderItemInfo} from 'react-native';
 
 import StubList from '../common/StubList';
 
-import CommentListItem, {COMMENT_ITEM_INDENT} from './CommentListItem.tsx';
+import CommentListItem, {COMMENT_ITEM_INDENT} from './CommentListItem';
 
 import {createDataTree, getDataTreeLevelMap} from '../../core/helpers/dataTree';
 

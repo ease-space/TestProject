@@ -2,9 +2,10 @@ import React, {useState, useEffect, useCallback} from 'react';
 import {SafeAreaProvider, SafeAreaView} from 'react-native-safe-area-context';
 import {StyleSheet} from 'react-native';
 
-import CommentsList from './components/commets/CommentsList.tsx';
+import CommentsList from './components/commets/CommentsList';
 
 import {getComments} from './core/api/comments/requests';
+
 import {Comment} from './core/api/comments/responses';
 
 const App = () => {
