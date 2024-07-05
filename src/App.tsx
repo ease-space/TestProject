@@ -1,5 +1,6 @@
 import React, {useState, useEffect, useCallback} from 'react';
 import {SafeAreaProvider, SafeAreaView} from 'react-native-safe-area-context';
+import {BottomSheetModalProvider} from '@gorhom/bottom-sheet';
 import {StyleSheet} from 'react-native';
 
 import CommentsList from './components/commets/CommentsList';
@@ -28,15 +29,17 @@ const App = () => {
 
   return (
     <SafeAreaProvider>
-      <SafeAreaView style={styles.contentContainer}>
-        <CommentsList
-          data={comments}
-          loading={loading}
-          onPressAddComment={onPressAddComment}
-        />
+      <BottomSheetModalProvider>
+        <SafeAreaView style={styles.contentContainer}>
+          <CommentsList
+            data={comments}
+            loading={loading}
+            onPressAddComment={onPressAddComment}
+          />
 
-        <AddComment />
-      </SafeAreaView>
+          <AddComment />
+        </SafeAreaView>
+      </BottomSheetModalProvider>
     </SafeAreaProvider>
   );
 };
