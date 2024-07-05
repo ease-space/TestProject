@@ -2,7 +2,7 @@ import React, {useState, useEffect, useCallback} from 'react';
 import {SafeAreaProvider, SafeAreaView} from 'react-native-safe-area-context';
 import {StyleSheet} from 'react-native';
 
-import List from './components/commets/List';
+import CommentsList from './components/commets/CommentsList.tsx';
 
 import {getComments} from './core/api/comments/requests';
 import {Comment} from './core/api/comments/responses';
@@ -27,7 +27,7 @@ const App = () => {
   return (
     <SafeAreaProvider>
       <SafeAreaView style={styles.contentContainer}>
-        <List
+        <CommentsList
           data={comments}
           loading={loading}
           onPressAddComment={onPressAddComment}

@@ -9,13 +9,13 @@ import {createDataTree, getDataTreeLevelMap} from '../../core/helpers/dataTree';
 
 import {Comment} from '../../core/api/comments/responses';
 
-interface ListProps {
+interface CommentsListProps {
   data: Comment[];
   loading: boolean;
   onPressAddComment(parentId: string): void;
 }
 
-const List: FunctionComponent<ListProps> = props => {
+const CommentsList: FunctionComponent<CommentsListProps> = props => {
   const {data, loading, onPressAddComment} = props;
 
   const dataTransformed = useMemo(() => {
@@ -55,4 +55,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default List;
+export default CommentsList;
