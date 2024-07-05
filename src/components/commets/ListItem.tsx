@@ -74,11 +74,11 @@ const styles = StyleSheet.create({
     borderColor: 'white',
   },
   userName: {
-    maxWidth: 100,
+    maxWidth: 120,
     marginLeft: 8,
   },
   timestamp: {
-    maxWidth: 180,
+    maxWidth: 160,
     marginLeft: 8,
   },
   footer: {

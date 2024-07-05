@@ -8,6 +8,8 @@ import {getComments} from './core/api/comments/requests';
 import {Comment} from './core/api/comments/responses';
 
 const App = () => {
+  const [loading, setLoading] = useState<boolean>(true);
+
   const [comments, setComments] = useState<Comment[]>([]);
 
   const onPressAddComment = useCallback((parentId: string) => {
@@ -15,13 +17,21 @@ const App = () => {
   }, []);
 
   useEffect(() => {
-    getComments().then(response => setComments(response));
+    getComments().then(response => {
+      setComments(response);
+
+      setLoading(false);
+    });
   });
 
   return (
     <SafeAreaProvider>
       <SafeAreaView style={styles.contentContainer}>
-        <List data={comments} onPressAddComment={onPressAddComment} />
+        <List
+          data={comments}
+          loading={loading}
+          onPressAddComment={onPressAddComment}
+        />
       </SafeAreaView>
     </SafeAreaProvider>
   );
