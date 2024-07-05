@@ -3,7 +3,7 @@ import {FlatList, StyleSheet, ListRenderItemInfo} from 'react-native';
 
 import StubList from '../common/StubList';
 
-import ListItem, {ITEM_INDENT} from './ListItem';
+import CommentListItem, {COMMENT_ITEM_INDENT} from './CommentListItem.tsx';
 
 import {createDataTree, getDataTreeLevelMap} from '../../core/helpers/dataTree';
 
@@ -26,14 +26,16 @@ const CommentsList: FunctionComponent<CommentsListProps> = props => {
     return data.map(item => {
       return {
         ...item,
-        indent: dataTreeLevelMap[item.id] * ITEM_INDENT,
+        indent: dataTreeLevelMap[item.id] * COMMENT_ITEM_INDENT,
       };
     });
   }, [data]);
 
   const renderItem = useCallback(
     ({item}: ListRenderItemInfo<Comment>) => {
-      return <ListItem item={item} onPressAddComment={onPressAddComment} />;
+      return (
+        <CommentListItem item={item} onPressAddComment={onPressAddComment} />
+      );
     },
     [onPressAddComment],
   );
