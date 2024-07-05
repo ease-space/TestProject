@@ -1,6 +1,8 @@
 import React, {FunctionComponent, useCallback, useMemo} from 'react';
 import {FlatList, StyleSheet, ListRenderItemInfo} from 'react-native';
 
+import StubList from '../common/StubList';
+
 import ListItem, {ITEM_INDENT} from './ListItem';
 
 import {createDataTree, getDataTreeLevelMap} from '../../core/helpers/dataTree';
@@ -9,13 +11,14 @@ import {Comment} from '../../core/api/comments/responses';
 
 interface ListProps {
   data: Comment[];
+  loading: boolean;
   onPressAddComment(parentId: string): void;
 }
 
 const List: FunctionComponent<ListProps> = props => {
-  const {data, onPressAddComment} = props;
+  const {data, loading, onPressAddComment} = props;
 
-  const transformedData = useMemo(() => {
+  const dataTransformed = useMemo(() => {
     const dataTree = createDataTree(data);
 
     const dataTreeLevelMap = getDataTreeLevelMap(dataTree);
@@ -37,9 +40,10 @@ const List: FunctionComponent<ListProps> = props => {
 
   return (
     <FlatList
-      data={transformedData}
-      extraData={transformedData}
+      data={dataTransformed}
+      extraData={dataTransformed}
       contentContainerStyle={styles.listContentContainer}
+      ListEmptyComponent={<StubList loading={loading} />}
       renderItem={renderItem}
     />
   );
